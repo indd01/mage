@@ -1,10 +1,16 @@
-    $duplicates = array();
-    $processed  = array();
-    foreach($combined as $k => $val) {
-        if(in_array($val,$processed)) {
-            $duplicates[$k]=$val;
-            $duplicates[array_search($val, $processed)]=$val;
-        } else {
-            $processed[$k]=$val;
+    /**
+     * removing not dublicates values from array
+     */
+    function get_array_double_values($combined){
+        $duplicates = array();
+        $processed  = array();
+        foreach($combined as $k => $val) {
+            if(in_array($val,$processed)) {
+                $duplicates[$k]=$val;
+                $duplicates[array_search($val, $processed)]=$val;
+            } else {
+                $processed[$k]=$val;
+            }
         }
+        return $duplicates;
     }
