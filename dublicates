@@ -1,0 +1,10 @@
+    $duplicates = array();
+    $processed  = array();
+    foreach($combined as $k => $val) {
+        if(in_array($val,$processed)) {
+            $duplicates[$k]=$val;
+            $duplicates[array_search($val, $processed)]=$val;
+        } else {
+            $processed[$k]=$val;
+        }
+    }
